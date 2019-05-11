@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>hello vue!</div>
+<div id="vue-id">
+    {{msg}}
+    <div>
+        <label for="first">
+            <input id="first" type="text" v-model="info">
+        </label>
+        <button @click="handleClick">add</button>
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    new Vue({
+        el: "#vue-id",
+        data() {
+            return {
+                msg: "this vue element",
+                info: "",
+            }
+        },
+        methods: {
+            handleClick() {
+                console.log(this.info);
+            }
+        }
+    })
+</script>
+</body>
+</html>
