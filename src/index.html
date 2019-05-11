@@ -10,29 +10,30 @@
     {{msg}}
     <div>
         <label for="first">
-            <input id="first" type="text" v-model="info">
+            <input id="first" type="text" v-model="info">  <!-- v-model 关联的联动模式，data中的值也会变 -->
         </label>
         <button @click="handleClick">add</button>
     </div>
     <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+        <li v-for="item in list">{{item}}</li>  <!--使用循环-->
     </ul>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>
     new Vue({
-        el: "#vue-id",
-        data() {
+        el: "#vue-id",  // 绑定
+        data() {  // 处理数据
             return {
                 msg: "this vue element",
-                info: "",
+                info: "init",
+                list: ["first", "second", "third"],
             }
         },
         methods: {
             handleClick() {
-                console.log(this.info);
+                console.log(this.info);  // 获得info值 this.info 和 data() 产生关系
+                this.list.push(this.info);
+                console.log(this.list)
             }
         }
     })
